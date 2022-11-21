@@ -37,7 +37,7 @@ jobs:
         run: |
           docker create --name cargo cargo
           mkdir cargo
-          docker cp cargo:/cargo/target/armv5te-unknown-linux-gnueabi/debian/*.deb cargo
+          docker cp cargo:/cargo/target/armv5te-unknown-linux-gnueabi/debian/cargo_${{ env.CARGO_VER }}_armel.deb cargo
           
           export CARGO=$(find cargo/ -type f -name "*.deb")
           echo "CARGO=$CARGO" >> $GITHUB_ENV

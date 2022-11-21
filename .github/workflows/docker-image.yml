@@ -49,3 +49,4 @@ jobs:
           file: ${{ env.CARGO }}
           tag: ${{ env.CARGO_VER }}
           body: Cargo ${{ env.CARGO_VER }}
+          overwrite: true

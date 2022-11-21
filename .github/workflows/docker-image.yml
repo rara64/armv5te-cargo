@@ -32,7 +32,7 @@ jobs:
         if: ${{ env.CARGO_VER != env.CARGO_RELEASE }}
         run: |
           docker buildx build --load --tag cargo --platform linux/arm/v5 --allow security.insecure --no-cache .
-      - name: Copy wheels from the image
+      - name: Copy package from the image
         if: ${{ env.CARGO_VER != env.CARGO_RELEASE }}
         run: |
           docker create --name cargo cargo

@@ -43,7 +43,7 @@ jobs:
           echo "CARGO=$CARGO" >> $GITHUB_ENV
       - name: Upload package to release
         if: ${{ env.CARGO_VER != env.CARGO_RELEASE }}
-        uses: svenstaro/upload-release-action@v2.3.0
+        uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.TOKEN }}
           file: ${{ env.CARGO }}

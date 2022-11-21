@@ -18,7 +18,7 @@ jobs:
           export CARGO_RELEASE=$(jq -r '[.[]| .tag_name][0]' <<< $(curl --silent https://api.github.com/repos/rara64/armv5te-cargo/releases))
           
           echo "CARGO_VER=$CARGO_VER" >> $GITHUB_ENV
-          echo "CARGO_RELEASE=$CARGO_RELEASE' >> $GITHUB_ENV
+          echo "CARGO_RELEASE=$CARGO_RELEASE" >> $GITHUB_ENV
       - name: Checkout code
         if: ${{ env.CARGO_VER != env.CARGO_RELEASE }}
         uses: actions/checkout@v3

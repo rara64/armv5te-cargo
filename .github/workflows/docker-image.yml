@@ -37,9 +37,9 @@ jobs:
         run: |
           docker create --name cargo cargo
           mkdir cargo
-          docker cp cargo:/cargo/target/armv5te-unknown-linux-gnueabi/debian/cargo_${{ env.CARGO_VER }}_armel.deb cargo
+          docker cp cargo:/cargo/target/armv5te-unknown-linux-gnueabi/debian/ cargo
           
-          export CARGO=$(find cargo/ -type f -name "*.deb")
+          export CARGO=$(find cargo/ -type f -name "*_armel.deb")
           echo "CARGO=$CARGO" >> $GITHUB_ENV
       - name: Upload package to release
         if: ${{ env.CARGO_VER != env.CARGO_RELEASE }}

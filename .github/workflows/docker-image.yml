@@ -14,7 +14,7 @@ jobs:
           git clone https://github.com/rust-lang/cargo
           cd cargo
           
-          export CARGO_VER=$(cat Cargo.toml | grep 'version =' | head -n1 | cut -f 2 -d '"')
+          export CARGO_VER=$(cat Cargo.toml | grep '^version =' | head -n1 | cut -f 2 -d '"')
           export CARGO_RELEASE=$(jq -r '[.[]| .tag_name][0]' <<< $(curl --silent https://api.github.com/repos/rara64/armv5te-cargo/releases))
           
           echo "CARGO_VER=$CARGO_VER" >> $GITHUB_ENV
